@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jowjeh1.github.io/clickdoc-site/sitemap.xml
+Sitemap: https://clickdoc.github.io/sitemap.xml
