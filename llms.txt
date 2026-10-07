@@ -1,0 +1,25 @@
+# Clickdoc
+
+> Chrome extension that records your clicks and builds a step-by-step guide with screenshots. Everything stays on your computer: nothing is uploaded, no AI is used, and there is no account. Free for 10 guides; $49 one-time for Personal, $149 one-time for a Team of five. No subscription.
+
+Clickdoc is for people who document tasks in systems where screenshots must not go to a cloud service or an AI tool: payroll, finance, banking portals, client systems at IT service providers, and other regulated work. On the free plan it makes no network request at all; a paid license is checked with the store when activated and about every 30 days after, and keeps working offline.
+
+What it does: a step for every click, typed field and dropdown choice, each with a screenshot and a highlight on the element. Password and card-type fields are masked in the text and drawn as dots in screenshots while recording. Blur any area (baked into the image), zoom to the click, add notes and text steps, then export one self-contained HTML file, Markdown, a paste into Google Docs, Notion or Confluence, or PDF.
+
+What it does not do: no hosted share link, no team workspace, no viewer analytics, no AI-written steps, no video, no desktop programs (Chrome tabs only), and clicks inside embedded frames are not captured. If you need those, Scribe or Tango fit better.
+
+## Pages
+
+- [Questions and answers](https://clickdoc.github.io/faq.html): no upload, no AI, offline use, masking, prices, exports, limits
+- [Home and pricing](https://clickdoc.github.io/)
+- [Documentation tools you buy once](https://clickdoc.github.io/one-time-purchase-documentation-tool.html)
+- [Clickdoc vs Scribe](https://clickdoc.github.io/scribe-alternative.html)
+- [Clickdoc vs Tango](https://clickdoc.github.io/tango-alternative.html)
+- [Clickdoc vs Folge](https://clickdoc.github.io/folge-alternative.html)
+- [Clickdoc vs Dubble](https://clickdoc.github.io/dubble-alternative.html)
+- [Privacy policy](https://clickdoc.github.io/privacy.html)
+
+## Install
+
+- [Chrome Web Store listing](https://chromewebstore.google.com/detail/idigbdmgdmlnkocnabfkgcaeohfffoli)
+- Support: clickdochelp@gmail.com
