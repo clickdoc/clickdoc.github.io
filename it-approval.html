@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clickdoc for IT: permissions, network and deployment</title>
+<meta name="description" content="What IT needs to approve Clickdoc: every permission and why, the exact network requests (none on the free plan), where data is stored, and how to force-install it with Chrome or Edge policy.">
+<link rel="stylesheet" href="site.css">
+<style>
+  body { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; color: #1a1d26; background: #fff; margin: 0; line-height: 1.6; }
+  /* content-box holds this column at the width it had before site.css set box-sizing: border-box globally. */
+  main { box-sizing: content-box; max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+  h1 { letter-spacing: -0.02em; }
+  h2 { margin-top: 2rem; font-size: 1.15rem; }
+  .muted { color: #6b7280; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid #e5e7eb; }
+  code { font-size: 0.9em; overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<main>
+  <p><a href="index.html">Clickdoc</a></p>
+  <h1>Clickdoc for IT</h1>
+  <p class="muted">Updated 8 October 2026. For the person asked to approve Clickdoc.</p>
+
+  <p>Clickdoc is a Chrome extension that records clicks into a step-by-step guide with screenshots. It has no server, no account and no AI. Guides and screenshots stay in the browser's local storage on the machine that made them. This page lists what it can access, every network request it can make, and how to deploy it.</p>
+
+  <h2>Identity</h2>
+  <table>
+    <tr><th>Extension ID</th><td><code>idigbdmgdmlnkocnabfkgcaeohfffoli</code></td></tr>
+    <tr><th>Listing</th><td><a href="https://chromewebstore.google.com/detail/idigbdmgdmlnkocnabfkgcaeohfffoli" rel="noopener">Chrome Web Store</a></td></tr>
+    <tr><th>Manifest</th><td>Manifest V3</td></tr>
+    <tr><th>Browsers</th><td>Chrome, Microsoft Edge and Brave, installed from the Chrome Web Store</td></tr>
+  </table>
+
+  <h2>Permissions, and what each is used for</h2>
+  <table>
+    <tr><th>Permission</th><th>Why</th></tr>
+    <tr><td><code>&lt;all_urls&gt;</code> (host access)</td><td>To take a screenshot of the visible tab at each step, and to run the step recorder on whatever site is being documented. A small script is present on pages, but it sends nothing unless the user has pressed record.</td></tr>
+    <tr><td><code>tabs</code></td><td>To take the screenshot of the visible tab and read its title and address for the step.</td></tr>
+    <tr><td><code>webNavigation</code></td><td>To record a "go to this page" step when the recorded tab moves to a new page.</td></tr>
+    <tr><td><code>storage</code>, <code>unlimitedStorage</code></td><td>To keep guides, with their screenshots, in the browser's local extension storage. Screenshots exceed the default quota.</td></tr>
+  </table>
+  <p>It does not ask for cookies, history, downloads, clipboard reading, identity or native messaging permissions.</p>
+
+  <h2>Network requests</h2>
+  <table>
+    <tr><th>Plan</th><th>Requests</th></tr>
+    <tr><td>Free</td><td>None. Not one request, at any time.</td></tr>
+    <tr><td>Paid, store key</td><td>One <code>POST https://api.gumroad.com/v2/licenses/verify</code> when the key is activated, and never again. The body is the product ID and the license key, nothing else. After activation the paid version makes no request, the same as the free plan.</td></tr>
+    <tr><td>Paid, offline key</td><td>None. An offline key is a signed string checked inside the extension. Email <a href="mailto:clickdochelp@gmail.com">clickdochelp@gmail.com</a> with your receipt if your network blocks the store.</td></tr>
+  </table>
+  <p>To check this yourself: open <code>chrome://extensions</code>, turn on Developer mode, click "service worker" under Clickdoc, and watch the Network tab while recording and exporting a guide. Page requests you see belong to the website being recorded, not to Clickdoc.</p>
+
+  <h2>What it records, and what it hides</h2>
+  <ul>
+    <li>Only between Start and Stop, which the user presses. Nothing is recorded otherwise.</li>
+    <li>Each step holds a screenshot of the visible tab, a line of text describing the action, the page title and address.</li>
+    <li>Password fields, and fields named or marked as card numbers, security codes, tokens and similar secrets, are written as dots in the step text and drawn as dots on screen while recording, so screenshots do not show them.</li>
+    <li>Email addresses, card numbers, IBANs, US social security numbers and phone numbers shown anywhere on the page are covered with a grey bar while recording and written as dots in the step text. The page itself is not changed: the cover is painted on top. The user can switch this off per recording.</li>
+    <li>Anything else can be blurred by the user before exporting. The blur is baked into the image, and the unblurred original is not included in any export.</li>
+  </ul>
+
+  <h2>Where data lives</h2>
+  <p>In <code>chrome.storage.local</code> for the extension, on that machine and browser profile only. It is not synced. Removing the extension deletes it. A guide leaves the machine only when the user exports it to a file or copies it, and then only to where the user puts it.</p>
+
+  <h2>Deploying it</h2>
+  <p>Chrome and Edge both take the same value in the <code>ExtensionInstallForcelist</code> policy:</p>
+  <p><code>idigbdmgdmlnkocnabfkgcaeohfffoli;https://clients2.google.com/service/update2/crx</code></p>
+  <p>Updates come from the Chrome Web Store like any other extension. A Team key can be activated on each machine by its user.</p>
+
+  <h2>Questions</h2>
+  <p>Email <a href="mailto:clickdochelp@gmail.com">clickdochelp@gmail.com</a>. See also the <a href="privacy.html">privacy policy</a>, the <a href="terms.html">terms</a> and the <a href="faq.html">questions page</a>.</p>
+</main>
+</body>
+</html>
